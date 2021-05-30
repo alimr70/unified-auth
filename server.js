@@ -77,7 +77,7 @@ app.use(express.urlencoded({ extended: true })); // support encoded bodies
 
 // Use routes
 app.use("/auth", authRoutes);
-app.use("/", indexRoutes);
+// app.use("/", indexRoutes);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
