@@ -74,16 +74,13 @@ export const getAlreadyLoggedinUserData = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch(userLoading());
   try {
-    const logoutRequest = await axios({
+    await axios({
       method: "get",
       url: "/auth/logout",
       withCredentials: true,
     });
 
-    if (logoutRequest.data) {
-      console.log(logoutRequest.data);
-      dispatch(logoutSuccess());
-    }
+    dispatch(logoutSuccess());
   } catch (err) {
     console.log(err);
   }
