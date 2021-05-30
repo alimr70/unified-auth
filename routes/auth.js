@@ -257,7 +257,7 @@ router.get("/logout", (req, res) => {
       maxAge: 0,
       secure: true,
     });
-    res.status(200);
+    res.status(200).json({ msg: "Logout success!" });
   } catch (err) {
     console.log(err);
   }
