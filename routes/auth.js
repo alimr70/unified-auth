@@ -232,16 +232,16 @@ router.get(
  * @access  Private
  */
 
-router.get("/getuser", (req, res) => {
-  var responseHTML = `<html><head><title>Main</title></head><body></body><script>res = %value%; window.opener.postMessage(res, "${process.env.CLIENT_URL}");window.close();</script></html>`;
-  responseHTML = responseHTML.replace(
-    "%value%",
-    JSON.stringify({
-      token: req.user,
-    })
-  );
-  res.status(200).send(responseHTML);
-});
+// router.get("/getuser", (req, res) => {
+//   var responseHTML = `<html><head><title>Main</title></head><body></body><script>res = %value%; window.opener.postMessage(res, "${process.env.CLIENT_URL}");window.close();</script></html>`;
+//   responseHTML = responseHTML.replace(
+//     "%value%",
+//     JSON.stringify({
+//       token: req.user,
+//     })
+//   );
+//   res.status(200).send(responseHTML);
+// });
 
 /**
  * @route   GET auth/logout
@@ -249,14 +249,18 @@ router.get("/getuser", (req, res) => {
  * @access  Private
  */
 router.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.cookie("reto", "", {
-    sameSite: "none",
-    httpOnly: true,
-    maxAge: 0,
-    secure: true,
-  });
-  res.status(200);
+  try {
+    req.session.destroy();
+    res.cookie("reto", "", {
+      sameSite: "none",
+      httpOnly: true,
+      maxAge: 0,
+      secure: true,
+    });
+    res.status(200);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 /**

@@ -13,17 +13,17 @@ const LoginPage = () => {
       <SocialMediaBtn
         platform="Google"
         imgSrc="./img/btn_google_dark_normal_ios.svg"
-        url={`${process.env.REACT_APP_API_URL}/auth/google`}
+        url={`/auth/google`}
       />
       {/* <SocialMediaBtn
         platform="Facebook"
         imgSrc="./img/f_logo_RGB-Blue_58.png"
-        url={`${process.env.REACT_APP_API_URL}/auth/facebook`}
+        url={`/auth/facebook`}
       /> */}
       <SocialMediaBtn
         platform="Twitter"
         imgSrc="./img/Twitter_social_icons_circle_blue.png"
-        url={`${process.env.REACT_APP_API_URL}/auth/twitter`}
+        url={`/auth/twitter`}
       />
       <div className="divider">
         <span className="dividerLine"></span>
