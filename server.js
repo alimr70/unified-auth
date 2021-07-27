@@ -29,16 +29,9 @@ const app = express();
 app.use(cookieParser());
 
 // Sessions
-/**
- * Important notes when working with cookie sessions
- * proxy: is important when deploying to Heroku
- * cookie: {secure, sameSite} are important to work with Chrome Browser
- */
-// const cookieConfig = { secure: true, sameSite: 'none', domain: process.env.COOKIE_DOMAIN }
 app.use(
   session({
     proxy: true,
-    // cookie: process.env.APP_STATE !== "development" ? cookieConfig : {},
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
@@ -77,13 +70,11 @@ app.use(express.urlencoded({ extended: true })); // support encoded bodies
 
 // Use routes
 app.use("/auth", authRoutes);
-// app.use("/", indexRoutes);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
-  // app.use("/static", express.static(path.join(__dirname, "client/build")));
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

@@ -1,33 +1,6 @@
 import axios from "axios";
 import * as actions from "../actions/actions";
 
-// export const getCurrentUser = (dispatch) => {
-//   dispatch(actions.userLoading());
-//   axios
-//     .get(`/auth/getuser`, {
-//       withCredentials: true,
-//     })
-//     .then((res) => {
-//       if (res.data) {
-//         const { token, username, image } = res.data;
-//         dispatch(actions.loginSuccess(token, username, image));
-//       } else {
-//         dispatch(actions.loginFail());
-//       }
-//     })
-//     .catch((err) => {
-//       if (err.response) {
-//         dispatch(
-//           actions.returnErrors(err.response.data.msg, err.response.status)
-//         );
-//         dispatch(actions.loginFail());
-//       } else {
-//         dispatch(actions.loginFail());
-//         console.error(err);
-//       }
-//     });
-// };
-
 export const handleLoginSubmit = async (
   e,
   username,
