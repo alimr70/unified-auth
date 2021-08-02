@@ -6,6 +6,8 @@ A full stack web application for authenticating users through (Google, Twitter, 
 
 ## Preview
 
+![Preview](preview.gif)
+
 ## How To Install
 
 ### 1. Clone the project
